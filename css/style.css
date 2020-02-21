@@ -1,0 +1,411 @@
+* {
+    font-family: 'Abel', sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+    transition: opacity 1.2s, visibility 0s linear 1.2s;
+    opacity:0.6;
+}
+
+input {
+    outline: none;
+}
+
+button {
+    display:block;
+    cursor:pointer;
+    box-sizing:border-box;
+    outline: none;
+}
+
+button:hover {
+    transition: opacity 1.2s, visibility 0s linear 1.2s;
+    opacity:0.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.inner {
+    max-width: 1440px;
+    width: 98%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ================ INPUT STYLE ======================= */
+input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  color: #999999;
+}
+
+input::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  color: #999999;
+}
+
+input:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  color: #999999;
+}
+
+input:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  color: #999999;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+/* HEADER STYLES */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 17px 40px;
+}
+
+.header__user a {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #d8d8d8;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.menu li+li {
+    padding-left: 2rem;
+}
+
+.menu a {
+    padding: 4px 4rem;
+    background-color: #d8d8d8;
+}
+
+/* BANNER STYLES */
+
+.banner {
+    background-color: #d8d8d8;
+    color: #000;
+}
+
+.banner h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+}
+
+.banner .inner {
+    padding: 7rem 8rem;
+    box-sizing: border-box;
+}
+
+.banner__description h4 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-top: 2rem;
+}
+
+.actons__button {
+    display: block;
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.actons__button + .actons__button {
+    margin-left: 25px;
+}
+
+.actons__button_white {
+    background-color: #fff;
+}
+
+.actons__button_black {
+    background-color: #000;
+    color: #fff;
+}
+
+/* GALLERY STYLES */
+
+.gallery .inner {
+    padding: 5rem 4rem;
+}
+
+.gallery__row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.gallery__row .item {
+    padding: 0 1rem;
+}
+
+.item__image {
+    width: 100%;
+    padding: 6rem 0;
+    background-color: #d8d8d8;
+}
+
+.item__header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    padding-top: 1rem;
+    color: #1C1E20;
+}
+
+.item__description {
+    padding-top: 1rem;
+    color: #1C1E20;
+}
+
+.item__link {
+    padding-top: 2rem;
+}
+
+.item__link a {
+    color: #787878;
+}
+
+/* SIGN UP STYLES */
+
+.sign-up {
+    background-color: #D8D8D8;
+}
+
+.sign-up .inner {
+    padding: 7rem 21rem;
+}
+
+.sign-up__header {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: #1C1E20;
+}
+
+.sign-up form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2rem 0 0;
+}
+
+.sign-up .inputbox {
+    width: 60%;;
+}
+
+.sign-up input {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #787878;
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.sign-up button {
+    background-color: #000;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #fff;
+    width: 40%;
+    padding: 1rem;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* NEWS STYLES */
+
+.news {
+    padding: 5rem 0;
+}
+
+.news__row {
+    padding: 0rem 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.news-item + .news-item {
+    padding-top: 4rem;
+}
+
+.news-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.news-item__image {
+    padding: 11rem 16rem;
+    background-color: #D8D8D8;
+}
+
+.news-item__description {
+    color: #1C1E20;
+}
+
+.news-item:nth-child(odd) .news-item__description {
+    text-align: right;
+    padding-right: 4rem;
+}
+
+.news-item:nth-child(even) .news-item__description {
+    text-align: left;
+    padding-left: 4rem;
+}
+
+.news-item__header {
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.news_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 4rem;
+}
+
+.news_button a {
+    padding: .5rem 4rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    background-color: #000;
+    color: #fff;
+}
+
+/* FOOTER STYLES */
+footer {
+    background-color: #D8D8D8;
+}
+
+.footer {
+    padding: 5rem 12rem;
+}
+
+.footer__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer__user a {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.footer__menu {
+    position: relative;
+    padding: 2rem 0;
+    border-bottom: 2px solid #fff;
+}
+
+.footer__menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer__menu li {
+    position: relative;
+}
+
+.footer__menu li {
+    padding: 0 1rem;
+}
+
+.footer__menu a {
+    padding: 4px 4rem;
+    background-color: #fff;
+}
+
+.footer__social {
+    padding-top: 3rem;
+}
+
+.footer__social ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer__social li {
+    line-height: 20px;
+    padding: 0 2.5rem;
+}
