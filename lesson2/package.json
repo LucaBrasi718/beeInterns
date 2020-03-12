@@ -1,10 +1,10 @@
 {
-  "name": "lesson1",
+  "name": "lesson2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./baseTest.js --timeout 10000"
+    "test": "./node_modules/.bin/mocha ./lesson2.js --timeout 10000"
   },
   "keywords": [],
   "author": "",

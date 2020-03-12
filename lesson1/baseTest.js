@@ -10,8 +10,9 @@ describe("Checkout Google", () => {
 
     it("Search on Google: Title", async function () {
         await driver.get("https://google.com");
-        await driver.findElement(By.xpath("//input[@name='q']")).click();
-        await driver.findElement(By.xpath("//input[@name='q']")).sendKeys('sesh', Key.RETURN);
+        let input = await driver.findElement(By.xpath("//input[@name='q']"));
+        await input.click();
+        await input.sendKeys('sesh', Key.RETURN);
         await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
         await driver.findElement(By.xpath("//a[h3 = 'TeamSESH — Home']")).click();
         let title = await driver.getTitle();
