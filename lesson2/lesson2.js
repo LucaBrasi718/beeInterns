@@ -1,6 +1,7 @@
 require ("chromedriver");
 const assert = require('assert');
 const { Builder, By, until } = require ("selenium-webdriver");
+const chrome = require('selenium-webdriver/chrome');
 let driver;
 
 describe("Проверка поиска элементов с разными типами локаторов", () => {
