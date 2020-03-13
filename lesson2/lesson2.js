@@ -5,7 +5,8 @@ let driver;
 
 describe("Проверка поиска элементов с разными типами локаторов", () => {
     before(async function () {
-        driver = await new Builder().forBrowser("chrome").build();
+        let options = new chrome.Options().addArguments('--disable-notifications');
+        driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
         await driver.get("https://moskva.beeline.ru/shop");
     });
 
