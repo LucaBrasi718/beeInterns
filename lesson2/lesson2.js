@@ -72,6 +72,5 @@ describe("Проверка поиска элементов с разными т�
         await driver.findElement(By.css("div[class*='item-repair'] > span")).click();
     });
 
-    after(() => console.log(1));
-    // driver.quit()
+    after(() => driver.quit());
 });
