@@ -27,10 +27,10 @@ describe("Проверка поиска элементов с разными т�
         assert.equal(title, 'Показать все');
     });
 
-    it("Один из чекбоксов производителей, например, \“Meizu\”", async function () {
+    it("Один из чекбоксов производителей, например, \"Apple\”", async function () {
         await driver.findElement(By.css("div[class*='SidebarPanel_borderBottom']:nth-child(3) > div[class*='ShowAllButton']")).click();
-        await driver.wait(until.elementLocated(By.css("div[class*='FiltersOption_container'] input[type='checkbox'][name*='meizu']")), 10000);
-        await driver.findElement(By.css("div[class*='SidebarPanel_borderBottom']:nth-child(3) input[type='checkbox'][name*='meizu']")).click();
+        await driver.wait(until.elementLocated(By.css("div[class*='FiltersOption_container'] input[type='checkbox'][name*='apple']")), 10000);
+        await driver.findElement(By.css("div[class*='SidebarPanel_borderBottom']:nth-child(3) input[type='checkbox'][name*='apple']")).click();
     });
 
     it("Элемент сортировки по цене", async function () {
@@ -39,14 +39,15 @@ describe("Проверка поиска элементов с разными т�
     });
 
     it("Элемент наименования товара в каталоге", async function () {
-        await driver.wait(until.elementLocated(By.xpath("//div[contains(@class, 'ProductCard_header') and contains(string(), 'Meizu')]")), 10000);
-        let name = await driver.findElement(By.css("div[class*='ProductCard_header']")).getText();
-        assert.equal(name, "Смартфон Meizu M5c 16GB Black");
+        await driver.wait(until.elementTextContains(driver.findElement(By.css("div[class*='ProductCard_header']"), 'Apple')), 10000);
+        let name = await driver.findElement(By.css("div[class*='ProductList_component'] div[class*='ProductCard_header'] > a")).getText();
+        assert.equal(name, "Смартфон Apple iPhone 11 64GB Чёрный");
     });
 
     it("Значение цены товара", async function () {
-        let price = await driver.findElement(By.css("div[class*='ProductList_component']:first-child div[class*='InlineSet_item']")).getText();
-        assert.equal(price, "2 990 ₽");
+        await driver.wait(until.elementTextContains(driver.findElement(By.css("div[class*='ProductList_component'] div[class*='InlineSet_item']")), "₽"), 10000);
+        let price = await driver.findElement(By.css("div[class*='ProductList_component'] div[class*='InlineSet_item']")).getText();
+        assert.equal(price, "59 990 ₽");
     });
 
     it("Кнопка \"Купить\",", async function () {
@@ -67,8 +68,10 @@ describe("Проверка поиска элементов с разными т�
     });
 
     it("Кнопка восстановления удалённого товара", async function () {
+        await driver.wait(until.elementTextContains(driver.findElement(By.css("div[class*='item-repair'] > span")), 'Восстановить'), 10000);
         await driver.findElement(By.css("div[class*='item-repair'] > span")).click();
     });
 
-    after(() => driver.quit());
+    after(() => console.log(1));
+    // driver.quit()
 });
