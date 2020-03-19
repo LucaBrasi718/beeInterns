@@ -53,11 +53,22 @@ describe('Test Beeline Shop', function(){
     })
 
     it("Кнопка 'Купить'", () => {
-        $("div[class*='ProductList_component'] div[class*='InlineSet_item'] button[class*='ReactiveButton']").click();
+        const productCards = $$("//div[contains(@class, 'ProductCard_component')]");
+        const name = $$("//div[contains(@class,'ProductCard_header')]")[Math.floor(productCards.length / 2)].getText();
+        const buyButton = $$("//div[contains(@class, 'ProductCard_component')]//button")[Math.floor(productCards.length / 2)];
+
+        buyButton.waitForClickable(10000);
+        buyButton.click();
+
         browser.waitUntil(() => {
-            let submitBtn = $('//div[contains(@class, "shop-order") and ./button[text()="Оформить заказ"]]').getText();
-            return expect(submitBtn).to.equal("Оформить заказ");
-        }, 5000, "expects button 'Buy' is will work successfully");
+            let basketItemsNames = $$('//tr[contains(@class, "sub-row")]//a[contains(@class, "ng-binding")]');
+            for(let i = 0; i < basketItemsNames.length; i++) {
+                if (basketItemsNames[i].getText() === name) {
+                    return expect(basketItemsNames[i].getText()).to.equal(name);
+                }
+                return expect(basketItemsNames[i].getText()).to.equal(name);
+            }
+        }, 10000, "expects item name equal");
     })
 
     it("'Крестик' для удаления товара из корзины (страница Корзины)", () => {
