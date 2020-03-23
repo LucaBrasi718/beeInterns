@@ -82,19 +82,16 @@ describe('Test Beeline Shop', () => {
         
         let itemNum;
         browser.waitUntil(() => {
-            let basketItemsNames = cartPage.getCartList();
+            let basketItemsNames = cartPage.CartList;
             for(let i = 0; i < basketItemsNames.length; i++) {
-                if (basketItemsNames[i].getText() === name) {
+                let text = basketItemsNames[i].getText();
+                if (text === name) {
                     itemNum = i;
-                    return expect(basketItemsNames[i].getText()).to.equal(name);
+                    return expect(text).to.equal(name);
                 }
-                return expect(basketItemsNames[i].getText()).to.equal(name);
+                return expect(text).to.equal(name);
             }
         }, 10000, "expects item name equal");
     });
-
-    after(() => {
-        browser.debug();
-    })
 
 });

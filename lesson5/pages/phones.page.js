@@ -39,6 +39,7 @@ export default class PhonesPage extends Page {
     }
 
     sortByPrice () {
+        this.priceSort.waitForClickable(5000);
         this.priceSort.click();
     }
 
@@ -53,7 +54,6 @@ export default class PhonesPage extends Page {
             name = $$("//div[contains(@class,'ProductCard_header')]")[n].getText();
             buyButton = $$("//div[contains(@class, 'ProductCard_component')]//button")[n];
         }
-        buyButton.waitForClickable(10000);
         buyButton.click();
         return name;
     }

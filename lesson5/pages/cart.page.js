@@ -2,7 +2,7 @@ import Page from "./page";
 
 export default class CartPage extends Page {
 
-    getCartList() { return $$('//tr[contains(@class, "sub-row")]//a[contains(@class, "ng-binding")]'); }
+    get CartList() { return $$('//tr[contains(@class, "sub-row")]//a[contains(@class, "ng-binding")]') };
 
     deleteItem(n) {
         $$("svg[class='modify-link-after']")[n].click();

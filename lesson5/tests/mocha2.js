@@ -42,7 +42,6 @@ describe('Test Beeline Shop', () => {
         addStep("Проверяем, что список телефонов обновился");
         browser.waitUntil(() => {
             let price = phonesPage.getPrice(0);
-            console.log(price);
             return expect(price >= valueFrom && price <= valueTo).to.be.true;
         }, 5000, "expect update catalog");
 
@@ -83,16 +82,17 @@ describe('Test Beeline Shop', () => {
         let name = phonesPage.addToBasket();
 
         addStep("Дожидаемся загрузки корзины и проверяем наличие там выбранного телефона");
-        
+
         let itemNum;
         browser.waitUntil(() => {
-            let basketItemsNames = cartPage.getCartList();
+            let basketItemsNames = cartPage.CartList;
             for(let i = 0; i < basketItemsNames.length; i++) {
-                if (basketItemsNames[i].getText() === name) {
+                let text = basketItemsNames[i].getText();
+                if (text === name) {
                     itemNum = i;
-                    return expect(basketItemsNames[i].getText()).to.equal(name);
+                    return expect(text).to.equal(name);
                 }
-                return expect(basketItemsNames[i].getText()).to.equal(name);
+                return expect(text).to.equal(name);
             }
         }, 10000, "expects item name equal");
 
@@ -104,13 +104,14 @@ describe('Test Beeline Shop', () => {
 
         addStep("Проверяем что товар устался в корзине, а сообщение с текстом: \"Товар был удален из корзины\" ​исчезло.");
         browser.waitUntil(() => {
-            let basketItemsNames = cartPage.getCartList();
+            let basketItemsNames = cartPage.CartList;
             for(let i = 0; i < basketItemsNames.length; i++) {
-                if (basketItemsNames[i].getText() === name) {
+                let text = basketItemsNames[i].getText();
+                if (text === name) {
                     itemNum = i;
-                    return expect(basketItemsNames[i].getText()).to.equal(name);
+                    return expect(text).to.equal(name);
                 }
-                return expect(basketItemsNames[i].getText()).to.equal(name);
+                return expect(text).to.equal(name);
             }
         }, 10000, "expects item name equal");
 
